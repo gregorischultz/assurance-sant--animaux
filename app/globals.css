@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   Poilou — base globale (aligné sur design-tokens/tokens.css)
+   ========================================================================= */
+@layer base {
+  :root {
+    /* Layout */
+    --content-max: 1240px;
+    --reading-max: 720px;
+    --cta-min-h: 48px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.bg.DEFAULT');
+    color: theme('colors.text');
+    font-family: theme('fontFamily.body');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: theme('fontFamily.display');
+    color: theme('colors.ink');
+    letter-spacing: -0.02em;
+  }
+
+  /* Ancrage sous header sticky pour le sommaire */
+  :target {
+    scroll-margin-top: 96px;
+  }
+}
+
+@layer components {
+  /* Conteneur centré standard */
+  .container-content {
+    width: 100%;
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  /* Bouton CTA primaire (corail) */
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: theme('colors.cta.DEFAULT');
+    color: #fff;
+    font-family: theme('fontFamily.display');
+    font-weight: 600;
+    font-size: 17px;
+    min-height: var(--cta-min-h);
+    padding: 14px 28px;
+    border: none;
+    border-radius: theme('borderRadius.lg');
+    box-shadow: theme('boxShadow.cta');
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-cta:hover { background: theme('colors.cta.hover'); }
+  .btn-cta:active { background: theme('colors.cta.active'); transform: translateY(1px); }
+
+  /* Bouton secondaire (outline corail) */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    color: theme('colors.cta.hover');
+    font-family: theme('fontFamily.display');
+    font-weight: 600;
+    font-size: 15px;
+    min-height: var(--cta-min-h);
+    padding: 12px 22px;
+    border: 1.5px solid theme('colors.cta.DEFAULT');
+    border-radius: theme('borderRadius.md');
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-outline:hover { background: theme('colors.cta.tint'); }
+
+  /* Bouton fantôme (vert, confiance) */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    color: theme('colors.green.dark');
+    font-family: theme('fontFamily.display');
+    font-weight: 600;
+    font-size: 15px;
+    min-height: var(--cta-min-h);
+    padding: 12px 22px;
+    border: 1.5px solid theme('colors.line.2');
+    border-radius: theme('borderRadius.md');
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-ghost:hover { background: theme('colors.green.tint'); border-color: theme('colors.green.DEFAULT'); }
+
+  /* Champ de formulaire */
+  .field {
+    width: 100%;
+    border: 1px solid theme('colors.line.DEFAULT');
+    border-radius: theme('borderRadius.md');
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: theme('fontFamily.body');
+    color: theme('colors.ink');
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .field:focus {
+    border-color: theme('colors.green.DEFAULT');
+    box-shadow: 0 0 0 3px theme('colors.green.tint');
+  }
+  .field[aria-invalid='true'] {
+    border-color: #d94a3d;
+    box-shadow: 0 0 0 3px #fbe4e1;
+  }
+}
+
+/* Prose (corps d'article MDX) */
+.prose-article {
+  font-size: 18px;
+  line-height: 1.7;
+  color: theme('colors.text');
+}
+.prose-article > * + * { margin-top: 1.1em; }
+.prose-article h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-top: 1.8em;
+  margin-bottom: 0.4em;
+}
+.prose-article h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  margin-top: 1.4em;
+  margin-bottom: 0.3em;
+}
+.prose-article a {
+  color: theme('colors.green.dark');
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-article ul, .prose-article ol {
+  padding-left: 1.4em;
+  list-style: revert;
+}
+.prose-article li + li { margin-top: 0.4em; }
+.prose-article strong { color: theme('colors.ink'); font-weight: 600; }
+.prose-article blockquote {
+  border-left: 3px solid theme('colors.green.DEFAULT');
+  padding-left: 16px;
+  color: theme('colors.muted.2');
+  font-style: italic;
+}
