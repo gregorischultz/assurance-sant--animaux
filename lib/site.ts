@@ -27,6 +27,7 @@ export const siteConfig = {
     { href: '/guides', label: 'Guides' },
     { href: '/guides?category=chien', label: 'Chien' },
     { href: '/guides?category=chat', label: 'Chat' },
+    { href: '/guides?category=lapin', label: 'Lapin' },
   ],
 };
 

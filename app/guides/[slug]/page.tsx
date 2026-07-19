@@ -36,6 +36,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 const categoryLabel: Record<string, string> = {
   chien: 'Guide chien',
   chat: 'Guide chat',
+  lapin: 'Guide lapin',
   general: 'Guide',
 };
 

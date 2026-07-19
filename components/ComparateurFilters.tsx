@@ -1,7 +1,13 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { offers as allOffers, type Animal, type Offer } from '@/content/data/offers';
+import {
+  offers as allOffers,
+  animalLabels,
+  animalOrder,
+  type Animal,
+  type Offer,
+} from '@/content/data/offers';
 import ComparisonTable from './ComparisonTable';
 
 type Budget = 'all' | 'low' | 'mid' | 'high';
@@ -55,7 +61,7 @@ export default function ComparateurFilters() {
       {/* Barre de filtres */}
       <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface p-5 shadow-card md:flex-row md:items-center md:gap-8">
         <FilterGroup label="Animal">
-          {(['chien', 'chat'] as const).map((a) => (
+          {animalOrder.map((a) => (
             <button
               key={a}
               type="button"
@@ -65,7 +71,7 @@ export default function ComparateurFilters() {
                 animal === a ? 'bg-primary text-white' : 'bg-background-2 text-muted hover:text-ink'
               }`}
             >
-              {a === 'chien' ? '🐶 Chien' : '🐱 Chat'}
+              {animalLabels[a]}
             </button>
           ))}
         </FilterGroup>
