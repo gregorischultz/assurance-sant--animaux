@@ -5,6 +5,7 @@ import JsonLd from '@/components/JsonLd';
 import { offers } from '@/content/data/offers';
 import { buildMetadata, breadcrumbJsonLd, itemListJsonLd } from '@/lib/seo';
 import { siteConfig } from '@/lib/site';
+import { affiliatesEnabled } from '@/lib/flags';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Comparatif des assurances chien & chat 2026',
@@ -48,10 +49,15 @@ export default function ComparatifPage() {
         </div>
 
         <p className="mt-8 max-w-reading text-caption text-muted">
-          Classement établi selon le rapport garanties/prix. Certains liens sont des liens
-          d&apos;affiliation : une commission peut nous être versée sans surcoût pour vous. Les tarifs
-          affichés sont indicatifs et « à partir de » — le prix final dépend de l&apos;âge, de la race et
-          de la formule choisie.
+          Classement établi selon le rapport garanties/prix.{' '}
+          {affiliatesEnabled && (
+            <>
+              Certains liens sont des liens d&apos;affiliation : une commission peut nous être versée sans
+              surcoût pour vous.{' '}
+            </>
+          )}
+          Les tarifs affichés sont indicatifs et « à partir de » — le prix final dépend de l&apos;âge, de
+          la race et de la formule choisie.
         </p>
       </div>
 

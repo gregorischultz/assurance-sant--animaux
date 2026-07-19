@@ -1,6 +1,7 @@
 import { getOffer } from '@/content/data/offers';
 import CtaButton from './CtaButton';
 import StarRating from './StarRating';
+import { affiliatesEnabled } from '@/lib/flags';
 
 /**
  * Bloc « 💡 Notre recommandation » à insérer au milieu des articles MDX.
@@ -13,8 +14,12 @@ export default function AffiliateBox({
   offerId: string;
   title?: string;
 }) {
+  // Feature flag : le bloc entier est masqué tant que l'affiliation est désactivée
+  // (aucun espace vide laissé dans l'article).
+  if (!affiliatesEnabled) return null;
+
   const offer = getOffer(offerId);
-  if (!offer) return null;
+  if (!offer || !offer.affiliateUrl) return null;
 
   return (
     <aside className="not-prose my-8 rounded-2xl border border-accent-border bg-accent-tint2 p-6">

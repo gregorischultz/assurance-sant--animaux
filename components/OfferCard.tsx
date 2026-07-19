@@ -1,6 +1,7 @@
 import type { Offer } from '@/content/data/offers';
 import CtaButton from './CtaButton';
 import StarRating from './StarRating';
+import { affiliatesEnabled } from '@/lib/flags';
 
 /**
  * Carte d'offre (top 3 de la home). Variante "best" = bordure verte + ombre verte
@@ -61,23 +62,29 @@ export default function OfferCard({ offer, featured = false }: { offer: Offer; f
         </div>
       </dl>
 
-      <div className="mt-6">
-        {featured ? (
-          <CtaButton href={offer.affiliateUrl} affiliate fullWidth ariaLabel={`Obtenir un devis ${offer.name}`}>
-            Obtenir un devis →
-          </CtaButton>
-        ) : (
-          <CtaButton
-            href={offer.affiliateUrl}
-            affiliate
-            variant="outline"
-            fullWidth
-            ariaLabel={`Voir l'offre ${offer.name}`}
-          >
-            Voir l&apos;offre
-          </CtaButton>
-        )}
-      </div>
+      {/* CTA d'affiliation : visible seulement si le flag est actif et l'URL renseignée.
+          Sinon, placeholder discret (la carte reste équilibrée, sans espace vide). */}
+      {affiliatesEnabled && offer.affiliateUrl ? (
+        <div className="mt-6">
+          {featured ? (
+            <CtaButton href={offer.affiliateUrl} affiliate fullWidth ariaLabel={`Obtenir un devis ${offer.name}`}>
+              Obtenir un devis →
+            </CtaButton>
+          ) : (
+            <CtaButton
+              href={offer.affiliateUrl}
+              affiliate
+              variant="outline"
+              fullWidth
+              ariaLabel={`Voir l'offre ${offer.name}`}
+            >
+              Voir l&apos;offre
+            </CtaButton>
+          )}
+        </div>
+      ) : (
+        <p className="mt-6 text-center text-caption text-muted">Devis bientôt disponible</p>
+      )}
     </article>
   );
 }

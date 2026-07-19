@@ -1,6 +1,11 @@
 // =========================================================================
 // Poilou — Dados das seguradoras (source of truth para comparação/afiliados)
-// Trocar os `affiliateUrl` pelos links reais dos programas de afiliado.
+//
+// 👉 LIENS D'AFFILIATION : source unique de vérité.
+//    Renseigner ci-dessous `affiliateUrl` pour chaque offre quand les liens
+//    des programmes sont disponibles (laisser '' tant qu'ils manquent).
+//    Les CTA d'affiliation ne s'affichent que si NEXT_PUBLIC_AFFILIATES_ENABLED
+//    = "true" ET que l'URL est renseignée (cf. lib/flags.ts + README).
 // =========================================================================
 
 export type Animal = 'chien' | 'chat';
@@ -43,7 +48,7 @@ export const offers: Offer[] = [
     delaiCarence: '0 j accident',
     remboursementMax: 100,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/kozoo',
+    affiliateUrl: '',
     badge: 'Meilleur choix',
     highlights: ['Souscription 100 % en ligne', 'Sans délai de carence accident', 'Remboursement en 48 h'],
   },
@@ -57,7 +62,7 @@ export const offers: Offer[] = [
     delaiCarence: '2 j accident',
     remboursementMax: 100,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/dalma',
+    affiliateUrl: '',
     highlights: ['Sans franchise', 'Prévention incluse', 'Application mobile'],
   },
   {
@@ -70,7 +75,7 @@ export const offers: Offer[] = [
     delaiCarence: '45 j maladie',
     remboursementMax: 100,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/santevet',
+    affiliateUrl: '',
     highlights: ['Leader historique', 'Réseau de vétérinaires', 'Tiers payant possible'],
   },
   {
@@ -83,7 +88,7 @@ export const offers: Offer[] = [
     delaiCarence: '7 j accident',
     remboursementMax: 100,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/assuropoil',
+    affiliateUrl: '',
     highlights: ['Formules modulables', 'Forfait prévention', 'Sans questionnaire de santé'],
   },
   {
@@ -96,7 +101,7 @@ export const offers: Offer[] = [
     delaiCarence: '3 j accident',
     remboursementMax: 100,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/bulle-bleue',
+    affiliateUrl: '',
     highlights: ['Sans limite d’âge', 'Devis rapide', 'Assistance 24/7'],
   },
   {
@@ -109,7 +114,7 @@ export const offers: Offer[] = [
     delaiCarence: '15 j accident',
     remboursementMax: 90,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/lovys',
+    affiliateUrl: '',
     highlights: ['100 % digital', 'Résiliation à tout moment', 'Tarifs jeunes animaux'],
   },
   {
@@ -122,7 +127,7 @@ export const offers: Offer[] = [
     delaiCarence: '30 j maladie',
     remboursementMax: 100,
     animals: ['chien'],
-    affiliateUrl: 'https://example.com/aff/fido',
+    affiliateUrl: '',
     highlights: ['Plafond élevé', 'Sans franchise', 'Spécial chiens de race'],
   },
   {
@@ -135,7 +140,7 @@ export const offers: Offer[] = [
     delaiCarence: '10 j accident',
     remboursementMax: 85,
     animals: ['chien', 'chat'],
-    affiliateUrl: 'https://example.com/aff/otherwise',
+    affiliateUrl: '',
     highlights: ['Le moins cher', 'Assurance solidaire', 'Cash-back sur cotisations'],
   },
 ];
