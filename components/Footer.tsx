@@ -59,7 +59,8 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-content flex flex-col items-center justify-between gap-2 py-5 text-micro text-footer-text2 sm:flex-row">
-          <p>© {new Date().getFullYear()} Poilou. Tous droits réservés.</p>
+          {/* Éditeur = marque Vupla (TODO: SIRET / statut légal, cf. mentions légales). */}
+          <p>© {new Date().getFullYear()} Poilou — édité par Vupla. Tous droits réservés.</p>
           <p>
             Certains liens sont des liens d&apos;affiliation : une commission peut nous être versée sans
             surcoût pour vous.

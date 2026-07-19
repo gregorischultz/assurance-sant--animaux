@@ -10,11 +10,14 @@ export const siteConfig = {
   // URL de produção (ajustar após deploy Vercel).
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://poilou.fr',
   locale: 'fr-FR',
+  // TODO: adresse de contact réelle de la marque Vupla.
   email: 'contact@poilou.fr',
-  // TODO: preencher com dados reais do auto-entrepreneur.
   legal: {
-    editor: 'Gregori Schultz (auto-entrepreneur)',
-    siret: 'TODO — SIRET',
+    // Éditeur = marque Vupla (aucune personne physique).
+    editor: 'Vupla',
+    // TODO: compléter avec le statut réel (auto-entrepreneur / société) et le n° SIRET.
+    siret: 'TODO — SIRET / auto-entrepreneur',
+    // TODO: adresse postale de l'éditeur.
     address: 'TODO — adresse',
     hostName: 'Vercel Inc.',
     hostAddress: '340 S Lemon Ave #4133, Walnut, CA 91789, USA',

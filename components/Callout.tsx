@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 type Tone = 'info' | 'tip' | 'warning';
 
 const toneStyle: Record<Tone, { box: string; icon: string }> = {
-  info: { box: 'border-green-tint bg-green-tint2', icon: 'ℹ️' },
-  tip: { box: 'border-cta-border bg-cta-tint2', icon: '💡' },
+  info: { box: 'border-primary-tint bg-primary-tint2', icon: 'ℹ️' },
+  tip: { box: 'border-accent-border bg-accent-tint2', icon: '💡' },
   warning: { box: 'border-star/40 bg-[#FFF7E8]', icon: '⚠️' },
 };
 

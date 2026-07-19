@@ -53,7 +53,7 @@ export default function AProposPage() {
           <h2 className="font-display text-h4 font-bold text-ink">Notre méthodologie</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {method.map((m) => (
-              <div key={m.title} className="rounded-2xl border border-line bg-card p-6 shadow-card">
+              <div key={m.title} className="rounded-2xl border border-line bg-surface p-6 shadow-card">
                 <h3 className="font-display text-title font-bold text-ink">{m.title}</h3>
                 <p className="mt-2 text-body-sm text-muted">{m.text}</p>
               </div>
@@ -70,9 +70,9 @@ export default function AProposPage() {
           </div>
         </section>
 
-        <section id="contact" className="mt-8 scroll-mt-24 rounded-3xl bg-green px-6 py-12 text-center text-white">
+        <section id="contact" className="mt-8 scroll-mt-24 rounded-3xl bg-primary px-6 py-12 text-center text-white">
           <h2 className="font-display text-h4 font-bold text-white">Une question ?</h2>
-          <p className="mt-2 text-body-sm text-green-tint">
+          <p className="mt-2 text-body-sm text-primary-tint">
             Écrivez-nous à{' '}
             <a href={`mailto:${siteConfig.email}`} className="underline">
               {siteConfig.email}

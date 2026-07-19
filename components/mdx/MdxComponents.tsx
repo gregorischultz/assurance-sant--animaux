@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import AffiliateBox from '@/components/AffiliateBox';
 import Callout from '@/components/Callout';
 import LeadForm from '@/components/LeadForm';
@@ -30,12 +30,49 @@ function MdxComparisonTable({ top, ids }: { top?: number; ids?: string[] }) {
   return <ComparisonTable offers={list} />;
 }
 
+/**
+ * Tables Markdown (syntaxe `|`) → composants stylés, alignés sur ComparisonTable :
+ * en-tête bleu primary, lignes alternées, bordures, coins arrondis, padding confortable.
+ * Responsive : le wrapper défile horizontalement en mobile (overflow-x-auto).
+ * remark-gfm doit être activé (voir MDXRemote) pour que ces éléments soient générés.
+ */
+const mdxTable = {
+  table: ({ children }: { children?: ReactNode }) => (
+    <div className="not-prose my-7 overflow-x-auto rounded-2xl border border-line shadow-card">
+      <table className="w-full border-collapse text-left text-body-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }: { children?: ReactNode }) => (
+    <thead className="bg-primary-dark text-white">{children}</thead>
+  ),
+  tbody: ({ children }: { children?: ReactNode }) => (
+    <tbody className="[&>tr:nth-child(even)]:bg-background-2/50">{children}</tbody>
+  ),
+  tr: ({ children }: { children?: ReactNode }) => (
+    <tr className="border-t border-line first:border-t-0">{children}</tr>
+  ),
+  th: ({ children, style }: { children?: ReactNode; style?: CSSProperties }) => (
+    <th
+      style={style}
+      className="whitespace-nowrap px-4 py-3.5 font-display text-body-sm font-semibold"
+    >
+      {children}
+    </th>
+  ),
+  td: ({ children, style }: { children?: ReactNode; style?: CSSProperties }) => (
+    <td style={style} className="px-4 py-3.5 align-top text-text [&_strong]:text-ink">
+      {children}
+    </td>
+  ),
+};
+
 /** Componentes disponíveis dentro do MDX + estilização de headings com anchors. */
 export const mdxComponents = {
   AffiliateBox,
   Callout,
   LeadForm,
   ComparisonTable: MdxComparisonTable,
+  ...mdxTable,
   h2: ({ children }: { children?: ReactNode }) => {
     const id = slugify(textOf(children));
     return (

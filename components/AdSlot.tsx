@@ -16,7 +16,7 @@ export default function AdSlot({ label = 'Emplacement publicitaire' }: { label?:
   if (!ENABLED || !consent.ads) return null;
 
   return (
-    <div className="my-8 grid min-h-[90px] place-items-center rounded-xl border border-dashed border-line bg-bg-2 text-micro text-muted">
+    <div className="my-8 grid min-h-[90px] place-items-center rounded-xl border border-dashed border-line bg-background-2 text-micro text-muted">
       {label}
       {/* TODO: injecter ici le code AdSense (<ins class="adsbygoogle" …>) */}
     </div>

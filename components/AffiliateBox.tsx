@@ -17,8 +17,8 @@ export default function AffiliateBox({
   if (!offer) return null;
 
   return (
-    <aside className="not-prose my-8 rounded-2xl border border-cta-border bg-cta-tint2 p-6">
-      <p className="font-display text-body-sm font-semibold text-cta-active">{title}</p>
+    <aside className="not-prose my-8 rounded-2xl border border-accent-border bg-accent-tint2 p-6">
+      <p className="font-display text-body-sm font-semibold text-accent-active">{title}</p>
       <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-2">
@@ -26,7 +26,7 @@ export default function AffiliateBox({
             <StarRating rating={offer.rating} />
           </div>
           <p className="mt-1 text-body-sm text-text">
-            À partir de <strong className="text-green">{offer.priceFrom}€/mois</strong> · Plafond{' '}
+            À partir de <strong className="text-primary">{offer.priceFrom}€/mois</strong> · Plafond{' '}
             {offer.plafond.toLocaleString('fr-FR')}€/an · Carence {offer.delaiCarence}
           </p>
         </div>

@@ -55,8 +55,8 @@ export default function LeadForm({
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-green-tint bg-green-tint2 p-6 text-center">
-        <p className="font-display text-title font-bold text-green-dark">Merci ! 🎉</p>
+      <div className="rounded-2xl border border-primary-tint bg-primary-tint2 p-6 text-center">
+        <p className="font-display text-title font-bold text-primary-dark">Merci ! 🎉</p>
         <p className="mt-2 text-body-sm text-text">
           Votre guide arrive dans votre boîte mail. Pensez à vérifier vos spams.
         </p>
@@ -68,7 +68,7 @@ export default function LeadForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className={`rounded-2xl border border-line bg-card ${compact ? 'p-5' : 'p-6 sm:p-7'}`}
+      className={`rounded-2xl border border-line bg-surface ${compact ? 'p-5' : 'p-6 sm:p-7'}`}
     >
       <p className="font-display text-title font-bold text-ink">{title}</p>
       <p className="mt-1 text-body-sm text-muted">{subtitle}</p>
@@ -76,7 +76,7 @@ export default function LeadForm({
       {/* Type d'animal */}
       <fieldset className="mt-4">
         <legend className="sr-only">Type d&apos;animal</legend>
-        <div className="inline-flex rounded-pill bg-bg-2 p-1">
+        <div className="inline-flex rounded-pill bg-background-2 p-1">
           {(['chien', 'chat'] as const).map((a) => (
             <button
               key={a}
@@ -84,7 +84,7 @@ export default function LeadForm({
               onClick={() => setAnimal(a)}
               aria-pressed={animal === a}
               className={`rounded-pill px-5 py-2 text-small font-semibold capitalize transition ${
-                animal === a ? 'bg-green text-white shadow-card-green' : 'text-muted'
+                animal === a ? 'bg-primary text-white shadow-card-primary' : 'text-muted'
               }`}
             >
               {a === 'chien' ? '🐶 Chien' : '🐱 Chat'}
@@ -120,12 +120,12 @@ export default function LeadForm({
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 h-4 w-4 accent-green"
+          className="mt-0.5 h-4 w-4 accent-primary"
           required
         />
         <span>
           J&apos;accepte de recevoir des informations par email et j&apos;ai lu la{' '}
-          <a href="/politique-confidentialite" className="text-green-dark underline">
+          <a href="/politique-confidentialite" className="text-primary-dark underline">
             politique de confidentialité
           </a>
           . Désinscription à tout moment.

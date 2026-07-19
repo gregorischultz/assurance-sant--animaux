@@ -58,8 +58,8 @@ export default function GuidesIndexPage({
                 href={f.key === 'all' ? '/guides' : `/guides?category=${f.key}`}
                 className={`rounded-pill px-4 py-2 text-small font-semibold transition ${
                   isActive
-                    ? 'bg-green text-white'
-                    : 'border border-line bg-card text-muted hover:border-green'
+                    ? 'bg-primary text-white'
+                    : 'border border-line bg-surface text-muted hover:border-primary'
                 }`}
               >
                 {f.label}

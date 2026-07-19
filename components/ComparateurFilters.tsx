@@ -53,7 +53,7 @@ export default function ComparateurFilters() {
   return (
     <div>
       {/* Barre de filtres */}
-      <div className="flex flex-col gap-5 rounded-2xl border border-line bg-card p-5 shadow-card md:flex-row md:items-center md:gap-8">
+      <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface p-5 shadow-card md:flex-row md:items-center md:gap-8">
         <FilterGroup label="Animal">
           {(['chien', 'chat'] as const).map((a) => (
             <button
@@ -62,7 +62,7 @@ export default function ComparateurFilters() {
               aria-pressed={animal === a}
               onClick={() => setAnimal(a)}
               className={`rounded-md px-4 py-2 text-small font-semibold capitalize transition ${
-                animal === a ? 'bg-green text-white' : 'bg-bg-2 text-muted hover:text-ink'
+                animal === a ? 'bg-primary text-white' : 'bg-background-2 text-muted hover:text-ink'
               }`}
             >
               {a === 'chien' ? '🐶 Chien' : '🐱 Chat'}
@@ -92,7 +92,7 @@ export default function ComparateurFilters() {
         {results.length > 0 ? (
           <ComparisonTable offers={results} />
         ) : (
-          <p className="rounded-2xl border border-line bg-card p-8 text-center text-body text-muted">
+          <p className="rounded-2xl border border-line bg-surface p-8 text-center text-body text-muted">
             Aucune offre ne correspond à ces critères. Élargissez votre budget.
           </p>
         )}
@@ -134,8 +134,8 @@ function PillToggle<T extends string>({
           onClick={() => onChange(o.key)}
           className={`rounded-md border px-3 py-2 text-small font-medium transition ${
             value === o.key
-              ? 'border-green bg-green-tint text-green-dark'
-              : 'border-line bg-card text-muted hover:border-green'
+              ? 'border-primary bg-primary-tint text-primary-dark'
+              : 'border-line bg-surface text-muted hover:border-primary'
           }`}
         >
           {o.label}

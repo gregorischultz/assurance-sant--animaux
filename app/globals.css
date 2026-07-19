@@ -18,7 +18,7 @@
   }
 
   body {
-    background-color: theme('colors.bg.DEFAULT');
+    background-color: theme('colors.background.DEFAULT');
     color: theme('colors.text');
     font-family: theme('fontFamily.body');
     -webkit-font-smoothing: antialiased;
@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: theme('colors.cta.DEFAULT');
+    background: theme('colors.accent.fill');
     color: #fff;
     font-family: theme('fontFamily.display');
     font-weight: 600;
@@ -61,12 +61,12 @@
     padding: 14px 28px;
     border: none;
     border-radius: theme('borderRadius.lg');
-    box-shadow: theme('boxShadow.cta');
+    box-shadow: theme('boxShadow.accent');
     cursor: pointer;
     transition: background 0.15s ease, transform 0.1s ease;
   }
-  .btn-cta:hover { background: theme('colors.cta.hover'); }
-  .btn-cta:active { background: theme('colors.cta.active'); transform: translateY(1px); }
+  .btn-cta:hover { background: theme('colors.accent.fill-hover'); }
+  .btn-cta:active { background: theme('colors.accent.fill-active'); transform: translateY(1px); }
 
   /* Bouton secondaire (outline corail) */
   .btn-outline {
@@ -75,27 +75,27 @@
     justify-content: center;
     gap: 8px;
     background: #fff;
-    color: theme('colors.cta.hover');
+    color: theme('colors.accent.fill');
     font-family: theme('fontFamily.display');
     font-weight: 600;
     font-size: 15px;
     min-height: var(--cta-min-h);
     padding: 12px 22px;
-    border: 1.5px solid theme('colors.cta.DEFAULT');
+    border: 1.5px solid theme('colors.accent.DEFAULT');
     border-radius: theme('borderRadius.md');
     cursor: pointer;
     transition: background 0.15s ease;
   }
-  .btn-outline:hover { background: theme('colors.cta.tint'); }
+  .btn-outline:hover { background: theme('colors.accent.tint'); }
 
-  /* Bouton fantôme (vert, confiance) */
+  /* Bouton fantôme (bleu, confiance) */
   .btn-ghost {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background: #fff;
-    color: theme('colors.green.dark');
+    color: theme('colors.primary.dark');
     font-family: theme('fontFamily.display');
     font-weight: 600;
     font-size: 15px;
@@ -106,7 +106,7 @@
     cursor: pointer;
     transition: background 0.15s ease, border-color 0.15s ease;
   }
-  .btn-ghost:hover { background: theme('colors.green.tint'); border-color: theme('colors.green.DEFAULT'); }
+  .btn-ghost:hover { background: theme('colors.primary.tint'); border-color: theme('colors.primary.DEFAULT'); }
 
   /* Champ de formulaire */
   .field {
@@ -122,8 +122,8 @@
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .field:focus {
-    border-color: theme('colors.green.DEFAULT');
-    box-shadow: 0 0 0 3px theme('colors.green.tint');
+    border-color: theme('colors.primary.DEFAULT');
+    box-shadow: 0 0 0 3px theme('colors.primary.tint');
   }
   .field[aria-invalid='true'] {
     border-color: #d94a3d;
@@ -151,7 +151,7 @@
   margin-bottom: 0.3em;
 }
 .prose-article a {
-  color: theme('colors.green.dark');
+  color: theme('colors.primary.dark');
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -162,7 +162,7 @@
 .prose-article li + li { margin-top: 0.4em; }
 .prose-article strong { color: theme('colors.ink'); font-weight: 600; }
 .prose-article blockquote {
-  border-left: 3px solid theme('colors.green.DEFAULT');
+  border-left: 3px solid theme('colors.primary.DEFAULT');
   padding-left: 16px;
   color: theme('colors.muted.2');
   font-style: italic;

@@ -11,7 +11,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur">
       <div className="container-content flex h-16 items-center justify-between gap-4">
         <Logo />
 
@@ -20,7 +20,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-body-sm font-medium text-text transition hover:text-green-dark"
+              className="text-body-sm font-medium text-text transition hover:text-primary-dark"
             >
               {item.label}
             </Link>
@@ -47,14 +47,14 @@ export default function Header() {
 
       {/* Menu mobile déroulant */}
       {open && (
-        <div className="border-t border-line bg-bg md:hidden">
+        <div className="border-t border-line bg-background md:hidden">
           <nav className="container-content flex flex-col gap-1 py-4" aria-label="Navigation mobile">
             {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-3 text-body font-medium text-text hover:bg-green-tint"
+                className="rounded-md px-2 py-3 text-body font-medium text-text hover:bg-primary-tint"
               >
                 {item.label}
               </Link>

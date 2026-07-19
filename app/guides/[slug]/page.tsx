@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getGuideBySlug, getGuideSlugs, extractToc } from '@/lib/mdx';
 import { getAuthor } from '@/content/data/author';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
@@ -76,11 +77,11 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       <article className="container-content py-10 pb-24 md:pb-10">
         {/* Fil d'Ariane */}
         <nav aria-label="Fil d'Ariane" className="text-caption text-muted">
-          <Link href="/" className="hover:text-green-dark">
+          <Link href="/" className="hover:text-primary-dark">
             Accueil
           </Link>{' '}
           <span aria-hidden="true">›</span>{' '}
-          <Link href="/guides" className="hover:text-green-dark">
+          <Link href="/guides" className="hover:text-primary-dark">
             Guides
           </Link>{' '}
           <span aria-hidden="true">›</span>{' '}
@@ -88,7 +89,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
         </nav>
 
         <header className="mt-4 max-w-reading">
-          <span className="text-micro font-semibold uppercase tracking-wide text-green">
+          <span className="text-micro font-semibold uppercase tracking-wide text-primary">
             {categoryLabel[guide.category]}
           </span>
           <h1 className="mt-2 font-display text-m-h2 font-bold leading-tight text-ink md:text-h2">
@@ -104,7 +105,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             <span>{guide.readingTime} min de lecture</span>
           </div>
           {guide.intent === 'commercial' && (
-            <p className="mt-4 rounded-lg bg-bg-2 px-3 py-2 text-micro text-muted">
+            <p className="mt-4 rounded-lg bg-background-2 px-3 py-2 text-micro text-muted">
               Cet article contient des liens affiliés. En savoir plus sur{' '}
               <Link href="/a-propos#methodologie" className="underline">
                 notre méthodologie
@@ -117,7 +118,11 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_260px]">
           {/* Corps de l'article */}
           <div className="prose-article max-w-reading">
-            <MDXRemote source={guide.content} components={mdxComponents} />
+            <MDXRemote
+              source={guide.content}
+              components={mdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
 
             {guide.faq && guide.faq.length > 0 && (
               <section className="not-prose mt-12">
@@ -131,11 +136,11 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             <AuthorBio author={author} />
 
             {/* CTA final */}
-            <div className="not-prose mt-10 rounded-3xl bg-green px-6 py-10 text-center text-white">
+            <div className="not-prose mt-10 rounded-3xl bg-primary px-6 py-10 text-center text-white">
               <h2 className="font-display text-h4 font-bold text-white">
                 Trouvez la meilleure offre pour votre compagnon
               </h2>
-              <p className="mt-2 text-body-sm text-green-tint">
+              <p className="mt-2 text-body-sm text-primary-tint">
                 Comparez gratuitement en 2 minutes. Sans engagement.
               </p>
               <div className="mt-6 flex justify-center">

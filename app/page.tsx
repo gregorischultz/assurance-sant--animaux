@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* Top 3 des mutuelles */}
       <section className="container-content py-18">
         <div className="mx-auto max-w-reading text-center">
-          <span className="text-micro font-semibold uppercase tracking-wide text-green">
+          <span className="text-micro font-semibold uppercase tracking-wide text-primary">
             Notre sélection 2026
           </span>
           <h2 className="mt-2 font-display text-m-h2 font-bold text-ink md:text-h2">
@@ -83,7 +83,7 @@ export default function HomePage() {
       </section>
 
       {/* Comment ça marche */}
-      <section className="bg-green-tint2 py-18">
+      <section className="bg-primary-tint2 py-18">
         <div className="container-content">
           <h2 className="text-center font-display text-m-h2 font-bold text-ink md:text-h2">
             Comment ça marche ?
@@ -91,7 +91,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {steps.map((s) => (
               <div key={s.n} className="text-center">
-                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-green font-display text-title font-bold text-white shadow-card-green">
+                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary font-display text-title font-bold text-white shadow-card-primary">
                   {s.n}
                 </span>
                 <h3 className="mt-5 font-display text-title font-bold text-ink">{s.title}</h3>
@@ -113,7 +113,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/guides"
-            className="hidden shrink-0 text-body-sm font-semibold text-cta hover:text-cta-hover sm:block"
+            className="hidden shrink-0 text-body-sm font-semibold text-accent-fill hover:text-accent-fill-hover sm:block"
           >
             Tous les guides →
           </Link>
@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-bg-2 py-18">
+      <section className="bg-background-2 py-18">
         <div className="container-content">
           <h2 className="text-center font-display text-m-h2 font-bold text-ink md:text-h2">
             Questions fréquentes
@@ -139,12 +139,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA final */}
-      <section className="bg-green">
+      <section className="bg-primary">
         <div className="container-content py-16 text-center text-white">
           <h2 className="font-display text-m-h2 font-bold text-white md:text-h2">
             Prêt à protéger votre compagnon ?
           </h2>
-          <p className="mx-auto mt-3 max-w-reading text-lead text-green-tint">
+          <p className="mx-auto mt-3 max-w-reading text-lead text-primary-tint">
             Comparez gratuitement les meilleures assurances chien et chat. Sans engagement.
           </p>
           <div className="mt-8 flex justify-center">

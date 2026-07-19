@@ -13,7 +13,7 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
       <div className="hidden overflow-hidden rounded-2xl border border-line shadow-card md:block">
         <table className="w-full border-collapse text-left">
           <thead>
-            <tr className="bg-green-dark text-white">
+            <tr className="bg-primary-dark text-white">
               <th className="px-5 py-4 font-display text-body-sm font-semibold">Assureur</th>
               <th className="px-3 py-4 font-display text-body-sm font-semibold">Note</th>
               <th className="px-3 py-4 font-display text-body-sm font-semibold">Prix / mois</th>
@@ -27,13 +27,13 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
             {offers.map((offer, i) => (
               <tr
                 key={offer.id}
-                className={`border-t border-line ${i % 2 === 1 ? 'bg-bg-2/50' : 'bg-card'}`}
+                className={`border-t border-line ${i % 2 === 1 ? 'bg-background-2/50' : 'bg-surface'}`}
               >
                 <td className="px-5 py-4">
                   <div className="flex items-center gap-2">
                     <span className="font-display font-semibold text-ink">{offer.name}</span>
                     {offer.badge && (
-                      <span className="whitespace-nowrap rounded-pill bg-green-tint px-2.5 py-0.5 text-micro font-semibold text-green-dark">
+                      <span className="whitespace-nowrap rounded-pill bg-primary-tint px-2.5 py-0.5 text-micro font-semibold text-primary-dark">
                         ✓ {offer.badge}
                       </span>
                     )}
@@ -42,7 +42,7 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
                 <td className="px-3 py-4">
                   <StarRating rating={offer.rating} />
                 </td>
-                <td className="px-3 py-4 font-display font-bold text-green">{offer.priceFrom}€</td>
+                <td className="px-3 py-4 font-display font-bold text-primary">{offer.priceFrom}€</td>
                 <td className="px-3 py-4 text-body-sm text-text">{offer.franchise}</td>
                 <td className="px-3 py-4 text-body-sm text-text">{offer.plafond.toLocaleString('fr-FR')}€</td>
                 <td className="px-3 py-4 text-body-sm text-text">{offer.delaiCarence}</td>
@@ -67,15 +67,15 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
         {offers.map((offer) => (
           <article
             key={offer.id}
-            className={`rounded-2xl bg-card p-5 ${
-              offer.badge ? 'border-2 border-green shadow-card-green' : 'border border-line shadow-card'
+            className={`rounded-2xl bg-surface p-5 ${
+              offer.badge ? 'border-2 border-primary shadow-card-primary' : 'border border-line shadow-card'
             }`}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="font-display text-title font-bold text-ink">{offer.name}</span>
                 {offer.badge && (
-                  <span className="rounded-pill bg-green-tint px-2 py-0.5 text-micro font-semibold text-green-dark">
+                  <span className="rounded-pill bg-primary-tint px-2 py-0.5 text-micro font-semibold text-primary-dark">
                     ✓ {offer.badge}
                   </span>
                 )}
@@ -83,7 +83,7 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
               <StarRating rating={offer.rating} />
             </div>
             <div className="mt-2 flex items-baseline gap-2">
-              <span className="font-display text-h4 font-bold text-green">{offer.priceFrom}€</span>
+              <span className="font-display text-h4 font-bold text-primary">{offer.priceFrom}€</span>
               <span className="text-caption text-muted">/mois</span>
             </div>
             <dl className="mt-3 grid grid-cols-3 gap-2 text-caption text-muted">

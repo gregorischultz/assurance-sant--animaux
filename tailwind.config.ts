@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 
 /**
  * Poilou — Design Tokens → Tailwind theme
- * Usage: bg-cta, text-green-dark, font-display, rounded-2xl, shadow-cta, etc.
+ * Usage: bg-accent, text-primary-dark, font-display, rounded-2xl, shadow-accent, etc.
  * Fontes carregadas via next/font (Poppins + Inter) em app/layout.tsx.
  */
 const config: Config = {
@@ -14,23 +14,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        green: { DEFAULT: '#1B8A5E', dark: '#0E5A3C', tint: '#E9F5EF', tint2: '#F3F7F1' },
-        cta: {
-          DEFAULT: '#FF7A54',
-          hover: '#ED6238',
-          active: '#C64E28',
-          tint: '#FFEDE5',
-          tint2: '#FFF3EC',
-          border: '#FFB79E',
+        // Primaire — bleu profond (marque, structure, liens, en-têtes)
+        primary: { DEFAULT: '#1E5F8C', dark: '#164A6E', tint: '#E7F0F7', tint2: '#F1F6FA' },
+        // Accent — corail : réservé aux boutons CTA.
+        //  DEFAULT = corail de marque (bordures, badges, tints).
+        //  fill / fill-hover / fill-active = fond des boutons, assombri pour garantir
+        //  un contraste AA (≥ 4.5:1) avec du texte blanc (#FF6B5A seul = 2.8:1, échoue).
+        accent: {
+          DEFAULT: '#FF6B5A',
+          fill: '#D33F2E',
+          'fill-hover': '#B8341F',
+          'fill-active': '#9E2B18',
+          active: '#D33F2E',
+          tint: '#FFECE9',
+          tint2: '#FFF4F1',
+          border: '#FFB0A5',
         },
-        ink: '#24221E',
-        text: '#3A382F',
-        muted: { DEFAULT: '#6E695F', 2: '#55514A' },
-        bg: { DEFAULT: '#FBF8F3', 2: '#F1EEE7' },
-        card: '#FFFFFF',
-        line: { DEFAULT: '#EBE5DA', 2: '#E1DCD1' },
+        // Succès — vert : uniquement pour les icônes (coches, confirmations).
+        success: { DEFAULT: '#2E9E6B', tint: '#E4F4EC' },
+        ink: '#1F2A37',
+        text: '#1F2A37',
+        muted: { DEFAULT: '#5B6B7A', 2: '#485663' },
+        background: { DEFAULT: '#FFF8F3', 2: '#F3ECE4' },
+        surface: '#FFFFFF',
+        line: { DEFAULT: '#ECE3D9', 2: '#DFD5C8' },
         star: '#F5A623',
-        footer: { text: '#8A857B', text2: '#B7B2A8' },
+        footer: { text: '#9AA6B0', text2: '#6E7A85' },
       },
       fontFamily: {
         display: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
@@ -75,9 +84,9 @@ const config: Config = {
         pill: '999px',
       },
       boxShadow: {
-        cta: '0 12px 24px -8px rgba(255,122,84,0.60)',
+        accent: '0 12px 24px -8px rgba(211,63,46,0.45)',
         card: '0 20px 44px -28px rgba(0,0,0,0.25)',
-        'card-green': '0 24px 50px -20px rgba(27,138,94,0.40)',
+        'card-primary': '0 24px 50px -20px rgba(30,95,140,0.35)',
         float: '0 16px 34px -12px rgba(0,0,0,0.28)',
         frame: '0 40px 90px -30px rgba(0,0,0,0.40)',
       },

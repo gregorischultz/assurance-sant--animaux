@@ -44,7 +44,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-bg font-body text-text antialiased">
+      <body className="min-h-screen bg-background font-body text-text antialiased">
         {/* JSON-LD global : Organization + WebSite */}
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Header />

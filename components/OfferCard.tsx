@@ -9,14 +9,14 @@ import StarRating from './StarRating';
 export default function OfferCard({ offer, featured = false }: { offer: Offer; featured?: boolean }) {
   return (
     <article
-      className={`relative flex flex-col rounded-2xl bg-card p-7 ${
+      className={`relative flex flex-col rounded-2xl bg-surface p-7 ${
         featured
-          ? 'border-2 border-green shadow-card-green md:-translate-y-3'
+          ? 'border-2 border-primary shadow-card-primary md:-translate-y-3'
           : 'border border-line shadow-card'
       }`}
     >
       {offer.badge && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-pill bg-green px-4 py-1 text-caption font-semibold text-white shadow-card-green">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-pill bg-primary px-4 py-1 text-caption font-semibold text-white shadow-card-primary">
           ✓ {offer.badge}
         </span>
       )}
@@ -27,14 +27,14 @@ export default function OfferCard({ offer, featured = false }: { offer: Offer; f
       </div>
 
       <div className="mt-4 flex items-baseline gap-2">
-        <span className="font-display text-h2 font-bold text-green">{offer.priceFrom}€</span>
+        <span className="font-display text-h2 font-bold text-primary">{offer.priceFrom}€</span>
         <span className="text-small text-muted">/mois · à partir de</span>
       </div>
 
       <ul className="mt-5 flex flex-col gap-2 text-body-sm text-text">
         {(offer.highlights ?? []).map((h) => (
           <li key={h} className="flex items-start gap-2">
-            <span className="mt-0.5 text-green" aria-hidden="true">
+            <span className="mt-0.5 text-success" aria-hidden="true">
               ✓
             </span>
             <span>{h}</span>
