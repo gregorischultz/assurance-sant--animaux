@@ -9,6 +9,7 @@ const columns = [
       { href: '/comparatif', label: 'Comparatif 2026' },
       { href: '/guides?category=chien', label: 'Assurance chien' },
       { href: '/guides?category=chat', label: 'Assurance chat' },
+      { href: '/guides?category=lapin', label: 'Assurance lapin (NAC)' },
       { href: '/guides', label: 'Tous les guides' },
     ],
   },

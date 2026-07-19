@@ -28,7 +28,8 @@ export async function POST(request: Request) {
   }
 
   const email = (body.email ?? '').trim().toLowerCase();
-  const animal = body.animal === 'chat' ? 'chat' : 'chien';
+  const animal =
+    body.animal === 'chat' || body.animal === 'lapin' ? body.animal : 'chien';
 
   // Consentimento RGPD obrigatório.
   if (!body.consent) {

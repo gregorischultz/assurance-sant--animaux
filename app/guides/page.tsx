@@ -16,6 +16,7 @@ const filters = [
   { key: 'all', label: 'Tous' },
   { key: 'chien', label: '🐶 Chien' },
   { key: 'chat', label: '🐱 Chat' },
+  { key: 'lapin', label: '🐰 Lapin' },
   { key: 'general', label: 'Général' },
 ];
 

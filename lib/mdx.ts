@@ -20,7 +20,7 @@ export interface GuideMeta {
   date: string;
   updated?: string;
   author: string;
-  category: 'chien' | 'chat' | 'general';
+  category: 'chien' | 'chat' | 'lapin' | 'general';
   intent: 'informational' | 'commercial';
   cover?: string;
   faq?: FaqEntry[];

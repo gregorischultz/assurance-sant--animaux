@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { animalLabels, animalOrder, type Animal } from '@/content/data/offers';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -18,7 +19,7 @@ export default function LeadForm({
   compact?: boolean;
 }) {
   const [email, setEmail] = useState('');
-  const [animal, setAnimal] = useState<'chien' | 'chat'>('chien');
+  const [animal, setAnimal] = useState<Animal>('chien');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
@@ -77,7 +78,7 @@ export default function LeadForm({
       <fieldset className="mt-4">
         <legend className="sr-only">Type d&apos;animal</legend>
         <div className="inline-flex rounded-pill bg-background-2 p-1">
-          {(['chien', 'chat'] as const).map((a) => (
+          {animalOrder.map((a) => (
             <button
               key={a}
               type="button"
@@ -87,7 +88,7 @@ export default function LeadForm({
                 animal === a ? 'bg-primary text-white shadow-card-primary' : 'text-muted'
               }`}
             >
-              {a === 'chien' ? '🐶 Chien' : '🐱 Chat'}
+              {animalLabels[a]}
             </button>
           ))}
         </div>

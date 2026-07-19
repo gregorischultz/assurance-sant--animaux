@@ -8,7 +8,17 @@
 //    = "true" ET que l'URL est renseignée (cf. lib/flags.ts + README).
 // =========================================================================
 
-export type Animal = 'chien' | 'chat';
+export type Animal = 'chien' | 'chat' | 'lapin';
+
+/** Libellés d'affichage (emoji + nom) partagés entre les composants. */
+export const animalLabels: Record<Animal, string> = {
+  chien: '🐶 Chien',
+  chat: '🐱 Chat',
+  lapin: '🐰 Lapin',
+};
+
+/** Ordre d'affichage canonique des animaux dans les filtres/onglets. */
+export const animalOrder: Animal[] = ['chien', 'chat', 'lapin'];
 
 export interface Offer {
   /** Slug único e estável (usado em keys/anchors). */
@@ -74,9 +84,9 @@ export const offers: Offer[] = [
     plafond: 2500,
     delaiCarence: '45 j maladie',
     remboursementMax: 100,
-    animals: ['chien', 'chat'],
+    animals: ['chien', 'chat', 'lapin'],
     affiliateUrl: '',
-    highlights: ['Leader historique', 'Réseau de vétérinaires', 'Tiers payant possible'],
+    highlights: ['Leader historique', 'Réseau de vétérinaires', 'Couvre aussi les NAC'],
   },
   {
     id: 'assuropoil',
@@ -100,9 +110,9 @@ export const offers: Offer[] = [
     plafond: 2800,
     delaiCarence: '3 j accident',
     remboursementMax: 100,
-    animals: ['chien', 'chat'],
+    animals: ['chien', 'chat', 'lapin'],
     affiliateUrl: '',
-    highlights: ['Sans limite d’âge', 'Devis rapide', 'Assistance 24/7'],
+    highlights: ['Sans limite d’âge', 'Devis rapide', 'Ouverte aux NAC'],
   },
   {
     id: 'lovys',
@@ -142,6 +152,20 @@ export const offers: Offer[] = [
     animals: ['chien', 'chat'],
     affiliateUrl: '',
     highlights: ['Le moins cher', 'Assurance solidaire', 'Cash-back sur cotisations'],
+  },
+  {
+    id: 'exotys',
+    name: 'Exotys',
+    rating: 4.2,
+    priceFrom: 7,
+    franchise: '15€/acte',
+    plafond: 1500,
+    delaiCarence: '5 j accident',
+    remboursementMax: 90,
+    animals: ['lapin'],
+    affiliateUrl: '',
+    badge: 'Spécial NAC',
+    highlights: ['Spécialiste des NAC', 'Vétérinaires exotiques', 'Lapins, rongeurs & furets'],
   },
 ];
 
