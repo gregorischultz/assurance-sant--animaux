@@ -78,7 +78,7 @@ export function getGuideBySlug(slug: string): Guide | null {
     slug: data.slug ?? slug,
     date: data.date ?? new Date().toISOString().slice(0, 10),
     updated: data.updated,
-    author: data.author ?? 'gregori',
+    author: data.author ?? 'vupla',
     category: (data.category as GuideMeta['category']) ?? 'general',
     intent: (data.intent as GuideMeta['intent']) ?? 'informational',
     cover: data.cover,

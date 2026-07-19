@@ -14,7 +14,7 @@ export default function StickyMobileCta({
   note?: string;
 }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-card/95 p-3 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 p-3 backdrop-blur md:hidden">
       <div className="flex items-center gap-3">
         <CtaButton href={href} fullWidth className="flex-1">
           {label}

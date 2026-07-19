@@ -4,7 +4,7 @@ import type { TocItem } from '@/lib/mdx';
 export default function TableOfContents({ items }: { items: TocItem[] }) {
   if (items.length < 2) return null;
   return (
-    <nav aria-label="Sommaire" className="rounded-2xl border border-line bg-card p-5">
+    <nav aria-label="Sommaire" className="rounded-2xl border border-line bg-surface p-5">
       <p className="font-display text-caption font-semibold uppercase tracking-wide text-muted">
         Dans cet article
       </p>
@@ -13,7 +13,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
           <li key={item.id} className={item.level === 3 ? 'pl-4' : ''}>
             <a
               href={`#${item.id}`}
-              className="text-text transition hover:text-green-dark"
+              className="text-text transition hover:text-primary-dark"
             >
               {item.text}
             </a>

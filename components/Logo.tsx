@@ -5,7 +5,7 @@ export default function Logo({ className = '' }: { className?: string }) {
   return (
     <Link href="/" className={`inline-flex items-center gap-2 ${className}`} aria-label="Poilou — accueil">
       <span
-        className="grid h-9 w-9 place-items-center rounded-xl bg-green font-display text-lg font-bold text-white"
+        className="grid h-9 w-9 place-items-center rounded-xl bg-primary font-display text-lg font-bold text-white"
         aria-hidden="true"
       >
         P

@@ -14,11 +14,11 @@ export default function Faq({ items }: { items: FaqItem[] }) {
       {items.map((item) => (
         <details
           key={item.q}
-          className="group rounded-xl border border-line bg-card px-5 py-4 open:shadow-card"
+          className="group rounded-xl border border-line bg-surface px-5 py-4 open:shadow-card"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-body-sm font-semibold text-ink">
             {item.q}
-            <span className="shrink-0 text-green transition-transform group-open:rotate-45" aria-hidden="true">
+            <span className="shrink-0 text-primary transition-transform group-open:rotate-45" aria-hidden="true">
               +
             </span>
           </summary>

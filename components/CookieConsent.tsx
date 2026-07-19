@@ -76,21 +76,21 @@ export default function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Gestion des cookies"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-card shadow-frame md:inset-x-auto md:bottom-6 md:left-6 md:max-w-md md:rounded-2xl md:border"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-surface shadow-frame md:inset-x-auto md:bottom-6 md:left-6 md:max-w-md md:rounded-2xl md:border"
     >
       <div className="p-5 md:p-6">
         <p className="font-display text-body-sm font-bold text-ink">🍪 Votre vie privée</p>
         <p className="mt-2 text-caption text-muted">
           Nous utilisons des cookies pour mesurer l&apos;audience et afficher des publicités. Aucun cookie
           non essentiel n&apos;est déposé sans votre accord.{' '}
-          <a href="/politique-confidentialite" className="text-green-dark underline">
+          <a href="/politique-confidentialite" className="text-primary-dark underline">
             En savoir plus
           </a>
           .
         </p>
 
         {customizing && (
-          <div className="mt-4 flex flex-col gap-3 rounded-xl bg-bg-2 p-4">
+          <div className="mt-4 flex flex-col gap-3 rounded-xl bg-background-2 p-4">
             <label className="flex items-center justify-between gap-3 text-caption text-text">
               <span>
                 <span className="font-semibold text-ink">Mesure d&apos;audience</span> — statistiques anonymes
@@ -99,7 +99,7 @@ export default function CookieConsent() {
                 type="checkbox"
                 checked={prefs.analytics}
                 onChange={(e) => setPrefs((p) => ({ ...p, analytics: e.target.checked }))}
-                className="h-4 w-4 accent-green"
+                className="h-4 w-4 accent-primary"
               />
             </label>
             <label className="flex items-center justify-between gap-3 text-caption text-text">
@@ -110,7 +110,7 @@ export default function CookieConsent() {
                 type="checkbox"
                 checked={prefs.ads}
                 onChange={(e) => setPrefs((p) => ({ ...p, ads: e.target.checked }))}
-                className="h-4 w-4 accent-green"
+                className="h-4 w-4 accent-primary"
               />
             </label>
           </div>
