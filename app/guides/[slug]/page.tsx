@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import { affiliatesEnabled } from '@/lib/flags';
 import { getGuideBySlug, getGuideSlugs, extractToc } from '@/lib/mdx';
 import { getAuthor } from '@/content/data/author';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
@@ -104,7 +105,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             <span aria-hidden="true">·</span>
             <span>{guide.readingTime} min de lecture</span>
           </div>
-          {guide.intent === 'commercial' && (
+          {affiliatesEnabled && guide.intent === 'commercial' && (
             <p className="mt-4 rounded-lg bg-background-2 px-3 py-2 text-micro text-muted">
               Cet article contient des liens affiliés. En savoir plus sur{' '}
               <Link href="/a-propos#methodologie" className="underline">

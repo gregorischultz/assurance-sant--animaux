@@ -1,10 +1,13 @@
 import type { Offer } from '@/content/data/offers';
 import CtaButton from './CtaButton';
 import StarRating from './StarRating';
+import { affiliatesEnabled } from '@/lib/flags';
 
 /**
- * Tableau comparatif. En-tête vert foncé, lignes alternées, CTA par ligne,
- * badge « Meilleur choix ». Devient une liste de cartes en mobile (< md).
+ * Tableau comparatif. En-tête bleu foncé, lignes alternées, badge « Meilleur choix ».
+ * Devient une liste de cartes en mobile (< md).
+ * La colonne / le bouton CTA d'affiliation n'apparaît que si `affiliatesEnabled`
+ * (feature flag) est vrai et que l'offre a une `affiliateUrl` renseignée.
  */
 export default function ComparisonTable({ offers }: { offers: Offer[] }) {
   return (
@@ -20,7 +23,7 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
               <th className="px-3 py-4 font-display text-body-sm font-semibold">Franchise</th>
               <th className="px-3 py-4 font-display text-body-sm font-semibold">Plafond / an</th>
               <th className="px-3 py-4 font-display text-body-sm font-semibold">Carence</th>
-              <th className="px-5 py-4" />
+              {affiliatesEnabled && <th className="px-5 py-4" />}
             </tr>
           </thead>
           <tbody>
@@ -46,16 +49,20 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
                 <td className="px-3 py-4 text-body-sm text-text">{offer.franchise}</td>
                 <td className="px-3 py-4 text-body-sm text-text">{offer.plafond.toLocaleString('fr-FR')}€</td>
                 <td className="px-3 py-4 text-body-sm text-text">{offer.delaiCarence}</td>
-                <td className="px-5 py-4 text-right">
-                  <CtaButton
-                    href={offer.affiliateUrl}
-                    affiliate
-                    variant={offer.badge ? 'primary' : 'outline'}
-                    ariaLabel={`Obtenir un devis ${offer.name}`}
-                  >
-                    Obtenir un devis
-                  </CtaButton>
-                </td>
+                {affiliatesEnabled && (
+                  <td className="px-5 py-4 text-right">
+                    {offer.affiliateUrl && (
+                      <CtaButton
+                        href={offer.affiliateUrl}
+                        affiliate
+                        variant={offer.badge ? 'primary' : 'outline'}
+                        ariaLabel={`Obtenir un devis ${offer.name}`}
+                      >
+                        Obtenir un devis
+                      </CtaButton>
+                    )}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -100,17 +107,19 @@ export default function ComparisonTable({ offers }: { offers: Offer[] }) {
                 <dd className="font-medium text-ink">{offer.delaiCarence}</dd>
               </div>
             </dl>
-            <div className="mt-4">
-              <CtaButton
-                href={offer.affiliateUrl}
-                affiliate
-                variant={offer.badge ? 'primary' : 'outline'}
-                fullWidth
-                ariaLabel={`Obtenir un devis ${offer.name}`}
-              >
-                Obtenir un devis
-              </CtaButton>
-            </div>
+            {affiliatesEnabled && offer.affiliateUrl && (
+              <div className="mt-4">
+                <CtaButton
+                  href={offer.affiliateUrl}
+                  affiliate
+                  variant={offer.badge ? 'primary' : 'outline'}
+                  fullWidth
+                  ariaLabel={`Obtenir un devis ${offer.name}`}
+                >
+                  Obtenir un devis
+                </CtaButton>
+              </div>
+            )}
           </article>
         ))}
       </div>

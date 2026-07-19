@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Logo from './Logo';
+import { affiliatesEnabled } from '@/lib/flags';
 
 const columns = [
   {
@@ -61,10 +62,13 @@ export default function Footer() {
         <div className="container-content flex flex-col items-center justify-between gap-2 py-5 text-micro text-footer-text2 sm:flex-row">
           {/* Éditeur = marque Vupla (TODO: SIRET / statut légal, cf. mentions légales). */}
           <p>© {new Date().getFullYear()} Poilou — édité par Vupla. Tous droits réservés.</p>
-          <p>
-            Certains liens sont des liens d&apos;affiliation : une commission peut nous être versée sans
-            surcoût pour vous.
-          </p>
+          {/* Divulgation affiliation : affichée uniquement quand le flag est actif. */}
+          {affiliatesEnabled && (
+            <p>
+              Certains liens sont des liens d&apos;affiliation : une commission peut nous être versée sans
+              surcoût pour vous.
+            </p>
+          )}
         </div>
       </div>
     </footer>

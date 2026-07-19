@@ -71,9 +71,18 @@ Le sommaire (H2/H3), la bio auteur, la FAQ et le JSON-LD sont générés automat
 
 ## Monétisation
 
-- Les assureurs et **liens d'affiliation** sont centralisés dans `content/data/offers.ts` (champ `affiliateUrl`) — remplacez les URLs `example.com` par les vrais liens.
+- Les assureurs et **liens d'affiliation** sont centralisés dans `content/data/offers.ts` (champ `affiliateUrl`) — **source unique de vérité**. Renseignez chaque `affiliateUrl` (vide `''` par défaut) quand vous disposez des liens des programmes.
+- **Feature flag affiliation** : tant que `NEXT_PUBLIC_AFFILIATES_ENABLED` n'est pas `true`, tous les éléments d'affiliation sont masqués — blocs `<AffiliateBox>`, boutons « Obtenir un devis » / « Voir l'offre », colonne CTA de `<ComparisonTable>` et mention de divulgation « liens d'affiliation ». Un CTA n'apparaît que si le flag est actif **et** que l'`affiliateUrl` de l'offre est renseignée (voir `lib/flags.ts`).
 - Tous les liens d'affiliation portent `rel="sponsored nofollow"` et `target="_blank"`.
 - `<AdSlot />` (AdSense) ne charge **rien** avant consentement cookies. Activez-le via `NEXT_PUBLIC_ADS_ENABLED=true` une fois le compte AdSense validé.
+
+### Activer l'affiliation
+
+1. Renseignez les `affiliateUrl` réelles dans `content/data/offers.ts`.
+2. **En local** : ajoutez `NEXT_PUBLIC_AFFILIATES_ENABLED=true` dans `.env.local`, puis relancez `npm run dev`.
+3. **Sur Vercel** : **Settings → Environment Variables** → ajoutez `NEXT_PUBLIC_AFFILIATES_ENABLED` = `true` (Production/Preview selon le besoin).
+4. ⚠️ Les variables `NEXT_PUBLIC_*` sont **inlinées au build** : il faut **redéployer** (Deployments → ⋯ → Redeploy, ou un nouveau push) pour que le changement prenne effet.
+5. Pour tout désactiver : repassez la variable à `false` (ou supprimez-la) puis redéployez.
 
 ## Conformité RGPD / CNIL
 
@@ -87,6 +96,7 @@ Le sommaire (H2/H3), la bio auteur, la FAQ et le JSON-LD sont générés automat
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | URL canonique de production | `https://poilou.fr` |
 | `NEXT_PUBLIC_ADS_ENABLED` | Active les emplacements AdSense | `false` |
+| `NEXT_PUBLIC_AFFILIATES_ENABLED` | Affiche blocs/CTA/divulgation d'affiliation (redéploiement requis) | `false` |
 
 Créez un `.env.local` (non commité) pour le développement.
 
